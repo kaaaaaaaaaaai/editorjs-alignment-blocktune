@@ -53,8 +53,11 @@
    Read more in Tool's README file. For example:
    https://github.com/editor-js/header#installation
    -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.18.0/dist/editor.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.20.0/dist/editor.min.js"></script>
   <script src="../dist/bundle.js" onload="document.getElementById('hint').hidden = true"></script><!-- Header -->
+  <script src="./tools/paragraph/dist/bundle.js" onload="document.getElementById('hint').hidden = true"></script><!-- Header -->
+  <script src="./tools/delimiter/dist/bundle.js" onload="document.getElementById('hint').hidden = true"></script><!-- Header -->
+  <script src="./tools/header/dist/bundle.js" onload="document.getElementById('hint').hidden = true"></script><!-- Header -->
 
   <!-- Initialization -->
   <script>
@@ -77,11 +80,21 @@
        * Tools list
        */
       tools: {
-        paragraph: {
-          class:Paragraph,
-          inlineToolbar: true,
+        header: {
+          class: Header,
         },
+        delimiter: Delimiter,
+        paragraph: {
+          class: Paragraph,
+          inlineToolbar: false,
+          // blockTool: {
+          //   class: alignmentBlockTune,
+          //   tunes: ['alignmentBlockTune']
+          // }
+        },
+        alignmentBlockTune:alignmentBlockTune
       },
+      tunes: ['alignmentBlockTune'],
       /**
        * Previously saved data that should be rendered
        */
