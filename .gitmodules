@@ -1,3 +1,9 @@
 [submodule "example/tools/paragraph"]
 	path = example/tools/paragraph
 	url = https://github.com/editor-js/paragraph
+[submodule "example/tools/header"]
+	path = example/tools/header
+	url = https://github.com/editor-js/header
+[submodule "example/tools/delimiter"]
+	path = example/tools/delimiter
+	url = https://github.com/editor-js/delimiter
