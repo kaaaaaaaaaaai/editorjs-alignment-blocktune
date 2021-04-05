@@ -1,5 +1,8 @@
 module.exports = {
   entry: './src/index.js',
+  mode: "production",
+  // ES5(IE11等)向けの指定
+  target: ["web", "es5"],
   module: {
     rules: [
       {
@@ -8,7 +11,7 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            query: {
+            options: {
               presets: [ '@babel/preset-env' ],
             },
           },
@@ -35,7 +38,7 @@ module.exports = {
     path: __dirname + '/dist',
     publicPath: '/',
     filename: 'bundle.js',
-    library: 'alignmentBlockTune',
-    libraryTarget: 'umd'
+    library: 'AlignmentBlockTune',
+    // libraryTarget: 'umd'
   }
 };
