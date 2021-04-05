@@ -87,19 +87,26 @@
         paragraph: {
           class: Paragraph,
           inlineToolbar: false,
-          // blockTool: {
-          //   class: alignmentBlockTune,
-          //   tunes: ['alignmentBlockTune']
-          // }
+          tunes: ['hehe', "aaa"],
+          config:{
+            css:{
+              "btnColor": "btn--gray",
+            }
+          }
         },
-        alignmentBlockTune:alignmentBlockTune
+        hehe: {
+          class:AlignmentBlockTune,
+          config:{
+            tuneName: "hehe"
+          },
+        }
       },
-      tunes: ['alignmentBlockTune'],
+      // tunes: ['alignmentBlockTune'],
       /**
        * Previously saved data that should be rendered
        */
-      data: {"time":1597151733527,"blocks":[{"type":"paragraph","data":{"text":"right","alignment":"right"}},{"type":"paragraph","data":{"text":"leeeeeeeeeeeeeeft","alignment":"left"}},{"type":"paragraph","data":{"text":"centerrrrrrrrr!","alignment":"center"}}],"version":"2.18.0"},
-
+      // data: {"time":1597151733527,"blocks":[{"type":"paragraph","data":{"text":"right","alignment":"right"}},{"type":"paragraph","data":{"text":"leeeeeeeeeeeeeeft","alignment":"left"}},{"type":"paragraph","data":{"text":"centerrrrrrrrr!","alignment":"center"}},{"type" : "header","data" : {"text" : "header","level" : 2}}],"version":"2.18.0"},
+      data: { "time" : 1617616076673, "blocks" : [ { "type" : "paragraph", "data" : { "text" : "center" }, "tunes" : { "hehe" : { "alignment" : "center" } } }, { "type" : "header", "data" : { "text" : "header", "level" : 2 } } ], "version" : "2.20.0" },
       /**
        * This Tool will be used as default
        */
