@@ -3,6 +3,18 @@
   "version": "1.0.0",
   "main": "./dist/bundle.js",
   "license": "MIT",
+  "keywords": [
+    "codex editor",
+    "paragraph",
+    "alignment",
+    "tool",
+    "editor.js",
+    "editorjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaaaaaaaaaaai/editorjs-alignment-blocktune.git"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development --watch",
@@ -17,5 +29,15 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/kaaaaaaaaaaai/paragraph-with-alignment/issues"
+  },
+  "homepage": "https://github.com/kaaaaaaaaaaai/paragraph-with-alignment#readme",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {},
+  "author": "kaaaaaaaaaaai <kaiogita+npm@gmail.com>",
+  "description": "text alignment block tune tool for Editor.js"
 }
