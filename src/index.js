@@ -5,19 +5,6 @@ require('./index.css').toString();
 const {make} = require('./util');
 
 class AlignmentBlockTune {
-    /**
-     * Allowed alignments
-     *
-     * @public
-     * @returns {{left: string, center: string}}
-     */
-    static get ALIGNMENTS() {
-        return {
-            left: 'left',
-            center: 'center',
-            right: 'right',
-        };
-    }
 
     /**
      * Default alignment
@@ -26,12 +13,13 @@ class AlignmentBlockTune {
      * @returns {string}
      */
     static get DEFAULT_ALIGNMENT() {
-        return AlignmentBlockTune.ALIGNMENTS.left;
+        return 'left';
     }
 
     static get isTune() {
         return true;
     }
+
     /**
      *
      * @param api
@@ -41,10 +29,9 @@ class AlignmentBlockTune {
      */
     constructor({ api, data, settings, block}) {
         this.api = api;
-        this.data = data;//ここ修正
-        // this.data = data || config.defaultAlignment || AlignmentBlockTune.DEFAULT_ALIGNMENT;
         this.block = block;
-        this.settings = settings || {};
+        this.settings = settings;
+        this.data = data || { alignment: this.settings.defaults[this.block.name] } || { alignment: settings.default} || { alignment: AlignmentBlockTune.DEFAULT_ALIGNMENT };
         this.alignmentSettings = [
             {
                 name: 'left',
@@ -66,13 +53,6 @@ class AlignmentBlockTune {
                 right: 'ce-tune-alignment--right',
             }
         }
-        // console.log(block)
-        // let copyLists = block.map( list => ({...list}))
-        // console.log(copyLists)
-        // if(typeof this.block.holder === 'undefined'){
-        //     console.log("naiyo!")
-        // }
-
     }
 
     /**
@@ -82,9 +62,16 @@ class AlignmentBlockTune {
      * @param blockContent
      */
     wrap(blockContent) {
-        blockContent.classList.toggle(this._CSS.alignment[this.data.alignment])
-        return blockContent
+        this.wrapper = make("div");
+        this.wrapper.classList.toggle(this._CSS.alignment[this.data.alignment])
+        this.wrapper.append(blockContent)
+        return this.wrapper
     }
+
+    /**
+     * rendering block tune
+     * @returns {*}
+     */
     render() {
         const wrapper = make("div");
         this.alignmentSettings.map(align => {
@@ -104,14 +91,16 @@ class AlignmentBlockTune {
                     const {name} = this.alignmentSettings[i];
                     el.classList.toggle(this.api.styles.settingsButtonActive, name === this.data.alignment);
                     //toggle alignment style class for block
-                    this.block.holder.classList.toggle(this._CSS.alignment[name], name === this.data.alignment)
+                    this.wrapper.classList.toggle(this._CSS.alignment[name], name === this.data.alignment)
                 });
             });
         });
         return wrapper;
     }
-
-
+    /**
+     * save
+     * @returns {*}
+     */
     save() {
         return this.data;
     }

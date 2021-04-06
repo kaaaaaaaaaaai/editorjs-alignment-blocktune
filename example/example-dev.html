@@ -58,12 +58,16 @@
   <script src="./tools/paragraph/dist/bundle.js" onload="document.getElementById('hint').hidden = true"></script><!-- Header -->
   <script src="./tools/delimiter/dist/bundle.js" onload="document.getElementById('hint').hidden = true"></script><!-- Header -->
   <script src="./tools/header/dist/bundle.js" onload="document.getElementById('hint').hidden = true"></script><!-- Header -->
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/raw"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script>
 
   <!-- Initialization -->
   <script>
-    /**
-     * Saving button
-     */
     const saveButton = document.getElementById('saveButton');
 
     /**
@@ -80,24 +84,64 @@
        * Tools list
        */
       tools: {
+        embed: {
+          class: Embed,
+          inlineToolbar: true,
+          tunes: ['alignmentSetting'],
+        },
+        quote: {
+          class: Quote,
+          inlineToolbar: true,
+          tunes: ['alignmentSetting'],
+        },
+        table: {
+          class: Table,
+          inlineToolbar: true,
+          tunes: ['alignmentSetting'],
+        },
+        code: {
+          class: CodeTool,
+          inlineToolbar: true,
+          tunes: ['alignmentSetting'],
+        },
+        raw: {
+          class: RawTool,
+          inlineToolbar: true,
+          tunes: ['alignmentSetting'],
+        },
+        checklist: {
+          class: Checklist,
+          inlineToolbar: true,
+          tunes: ['alignmentSetting'],
+        },
+        list: {
+          class: List,
+          inlineToolbar: true,
+          tunes: ['alignmentSetting'],
+        },
         header: {
           class: Header,
+          tunes: ['alignmentSetting'],
         },
         delimiter: Delimiter,
         paragraph: {
           class: Paragraph,
           inlineToolbar: false,
-          tunes: ['hehe', "aaa"],
+          tunes: ['alignmentSetting'],
           config:{
             css:{
               "btnColor": "btn--gray",
             }
           }
         },
-        hehe: {
+        alignmentSetting: {
           class:AlignmentBlockTune,
           config:{
-            tuneName: "hehe"
+            default: "right",
+            defaults: {
+              header: 'center',
+              list: 'right'
+            }
           },
         }
       },
@@ -106,7 +150,11 @@
        * Previously saved data that should be rendered
        */
       // data: {"time":1597151733527,"blocks":[{"type":"paragraph","data":{"text":"right","alignment":"right"}},{"type":"paragraph","data":{"text":"leeeeeeeeeeeeeeft","alignment":"left"}},{"type":"paragraph","data":{"text":"centerrrrrrrrr!","alignment":"center"}},{"type" : "header","data" : {"text" : "header","level" : 2}}],"version":"2.18.0"},
-      data: { "time" : 1617616076673, "blocks" : [ { "type" : "paragraph", "data" : { "text" : "center" }, "tunes" : { "hehe" : { "alignment" : "center" } } }, { "type" : "header", "data" : { "text" : "header", "level" : 2 } } ], "version" : "2.20.0" },
+      // data: { "time" : 1617616076673, "blocks" : [ { "type" : "paragraph", "data" : { "text" : "center" }, "tunes" : { "hehe" : { "alignment" : "center" } } }, { "type" : "header", "data" : { "text" : "header", "level" : 2 } } ], "version" : "2.20.0" },
+      // data: { "time" : 1617670890577, "blocks" : [ { "type" : "paragraph", "data" : { "text" : "center" }, "tunes" : { "hehe" : { "alignment" : "center" } } }, { "type" : "paragraph", "data" : { "text" : "riiiiiiiiiight" } }, { "type" : "paragraph", "data" : { "text" : "hellooooooooooooooooo" } }, { "type" : "header", "data" : { "text" : "header", "level" : 2 } } ], "version" : "2.20.0" },
+
+      //標準で何も設定していない
+      data:{ "time" : 1617693971188, "blocks" : [ { "type" : "paragraph", "data" : { "text" : "center" }, "tunes" : { "hehe" : { "alignment" : "center" } } }, { "type" : "paragraph", "data" : { "text" : "riiiiiiiiiight" } }, { "type" : "paragraph", "data" : { "text" : "hellooooooooooooooooo" } }, { "type" : "header", "data" : { "text" : "header", "level" : 2 } }, { "type" : "quote", "data" : { "text" : "quote text", "caption" : "caption", "alignment" : "left" } }, { "type" : "table", "data" : { "content" : [ [ "aaaaaaaa", "bbbbbbbbbb", "cccccccc" ], [ "111111111", "2222222222", "ccccccccc" ] ] } }, { "type" : "code", "data" : { "code" : "paragraph: {\n          class: Paragraph,\n          inlineToolbar: false,\n          tunes: ['alignmentSetting'],\n          config:{\n            css:{\n              \"btnColor\": \"btn--gray\",\n            }\n          }\n        }," } }, { "type" : "raw", "data" : { "html" : "paragraph: {\n          class: Paragraph,\n          inlineToolbar: false,\n          tunes: ['alignmentSetting'],\n          config:{\n            css:{\n              \"btnColor\": \"btn--gray\",\n            }\n          }\n        }," } }, { "type" : "paragraph", "data" : { "text" : "paragrapg" } }, { "type" : "checklist", "data" : { "items" : [ { "text" : "check1", "checked" : false }, { "text" : "check2", "checked" : false }, { "text" : "check3", "checked" : false } ] } }, { "type" : "delimiter", "data" : {} }, { "type" : "paragraph", "data" : { "text" : "end" } } ], "version" : "2.20.0" },
       /**
        * This Tool will be used as default
        */
