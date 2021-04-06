@@ -15,13 +15,13 @@ You can add text alignment to any block.
 Get the package
 
 ```shell
-npm i --save editorjs-paragraph-with-alignment
+npm i --save editorjs-text-alignment-blocktune
 ```
 
 Include module at your application
 
 ```javascript
-const Paragraph = require('editorjs-paragraph-with-alignment');
+const AlignmentTuneTool = require('editorjs-text-alignment-blocktune');
 ```
 
 ### Download to your project's source dir
@@ -31,10 +31,10 @@ const Paragraph = require('editorjs-paragraph-with-alignment');
 
 ### Load from CDN
 
-`https://cdn.jsdelivr.net/npm/editorjs-paragraph-with-alignment@2.0.0`
+`https://cdn.jsdelivr.net/npm/editorjs-text-alignment-blocktune@latest`
 
 ## usage
-
+and look [editor.js document](https://editorjs.io/configuration#block-tunes-connection)
 ```
 tool:{
     list: {
