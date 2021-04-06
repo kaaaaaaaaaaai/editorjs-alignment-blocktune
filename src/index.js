@@ -20,6 +20,15 @@ class AlignmentBlockTune {
         return true;
     }
 
+    getAlignment(){
+        if(!!this.settings?.blocks && this.settings.blocks.hasOwnProperty(this.block.name)){
+            return this.settings.blocks[this.block.name]
+        }
+        if(!!this.settings?.default){
+            return this.settings.default
+        }
+        return AlignmentBlockTune.DEFAULT_ALIGNMENT
+    }
     /**
      *
      * @param api
@@ -30,8 +39,17 @@ class AlignmentBlockTune {
     constructor({ api, data, settings, block}) {
         this.api = api;
         this.block = block;
+        /**
+         config:{
+            default: "right",
+            blocks: {
+              header: 'center',
+              list: 'right'
+            }
+          },
+         */
         this.settings = settings;
-        this.data = data || { alignment: this.settings.defaults[this.block.name] } || { alignment: settings.default} || { alignment: AlignmentBlockTune.DEFAULT_ALIGNMENT };
+        this.data = data || { alignment: this.getAlignment() }
         this.alignmentSettings = [
             {
                 name: 'left',
