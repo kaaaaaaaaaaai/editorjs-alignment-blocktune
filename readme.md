@@ -3,7 +3,9 @@
 # Text Alignment tune tool for Editor.js
 You can add text alignment to any block.
 
-![gif](https://user-images.githubusercontent.com/2194021/113724462-562c5300-972d-11eb-9cb7-198c78ca5f94.gif)
+![image](https://user-images.githubusercontent.com/2194021/113727385-0c913780-9730-11eb-836e-c536b6c19f23.gif)
+
+If you can help, please push the Star button :)
 
 ### required
 - editor.js v2.20
