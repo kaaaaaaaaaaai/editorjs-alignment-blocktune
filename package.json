@@ -1,5 +1,5 @@
 {
-  "name": "alignment-blocktune",
+  "name": "editorjs-text-alignment-blocktune",
   "version": "1.0.1",
   "main": "./dist/bundle.js",
   "license": "MIT",
