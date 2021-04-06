@@ -1,6 +1,6 @@
 {
   "name": "alignment-blocktune",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/bundle.js",
   "license": "MIT",
   "keywords": [
