@@ -1,0 +1,159 @@
+<!--
+ Use this page for debugging purposes.
+
+ Editor Tools are loaded as git-submodules.
+ You can pull modules by running `yarn pull_tools` and start experimenting.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor.js 🤩🧦🤨 example</title>
+  <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+  <link href="assets/demo.css" rel="stylesheet">
+  <script src="assets/json-preview.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+  <script>
+    import Image from "@editorjs/image";
+    // import Header from "@editorjs/header";
+    import Header from "editorjs-header-with-anchor";
+    import List from "@editorjs/list";
+    import CodeTool from "@editorjs/code";
+    import Paragraph from "@editorjs/paragraph";
+    import Embed from "@editorjs/embed";
+    import Table from "@editorjs/table";
+    import Checklist from "@editorjs/checklist";
+    import Marker from "@editorjs/marker";
+    import Warning from "@editorjs/warning";
+    import RawTool from "@editorjs/raw";
+    import Quote from "@editorjs/quote";
+    import InlineCode from "@editorjs/inline-code";
+    import Delimiter from "@editorjs/delimiter";
+    import LinkTool from "@editorjs/link";
+    import Carousel from "./carousel/dist/bundle.js";
+    import AnyButton from "editorjs-button";
+    import Underline from "@editorjs/underline";
+    import AlignmentBlockTune from "editorjs-text-alignment-blocktune";
+
+    export default {
+      props: ["blocks"],
+      data() {
+        return {
+          config: {
+            tools: {
+              header: {
+                class: Header,
+                config: {
+                  defaultLevel: 3,
+                  inlineToolbar: true,
+                },
+              },
+              paragraph: {
+                class: Paragraph,
+              },
+              underline: Underline,
+              list: {
+                class: List,
+                inlineToolbar: true,
+              },
+              linkTool: LinkTool,
+              embed: {
+                class: Embed,
+                config: {
+                  services: {
+                    youtube: true,
+                  },
+                },
+              },
+              warning: {
+                class: Warning,
+                inlineToolbar: true,
+                shortcut: "CMD+SHIFT+W",
+                config: {
+                  titlePlaceholder: "Заголовок",
+                  messagePlaceholder: "Сообщение",
+                },
+              },
+              inlineCode: {
+                class: InlineCode,
+                shortcut: "CMD+SHIFT+L",
+              },
+              marker: {
+                class: Marker,
+                shortcut: "CMD+SHIFT+M",
+              },
+              table: {
+                class: Table,
+                inlineToolbar: true,
+                config: {
+                  rows: 2,
+                  cols: 3,
+                },
+              },
+              delimiter: Delimiter,
+              quote: {
+                class: Quote,
+                inlineToolbar: true,
+                shortcut: "CMD+SHIFT+O",
+                config: {
+                  quotePlaceholder: "Цитата",
+                  captionPlaceholder: "Автор",
+                },
+              },
+              checklist: {
+                class: Checklist,
+                inlineToolbar: true,
+              },
+              code: {
+                class: CodeTool,
+              },
+              image: {
+                class: Image,
+                config: {
+                  endpoints: {
+                    byFile: "/image",
+                    byUrl: "/image-by-url",
+                  },
+                  field: "image",
+                  types: "image/*",
+                },
+              },
+              carousel: {
+                class: Carousel,
+                config: {
+                  endpoints: {
+                    byFile: "/image",
+                  },
+                },
+              },
+              raw: RawTool,
+              AnyButton: {
+                class: AnyButton,
+                inlineToolbar: false,
+                shortcut: "CMD+SHIFT+B",
+              },
+              alignmentSetting: {
+                class: AlignmentBlockTune,
+                config: {
+                  default: "right",
+                  blocks: {
+                    header: "center",
+                    list: "right",
+                  },
+                },
+              },
+            },
+            data: this.blocks,
+          },
+        };
+      },
+    };
+  </script>
+</body>
+</html>

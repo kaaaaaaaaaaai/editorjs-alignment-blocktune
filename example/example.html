@@ -1,0 +1,81 @@
+<!--
+ Use this page for debugging purposes.
+
+ Editor Tools are loaded as git-submodules.
+ You can pull modules by running `yarn pull_tools` and start experimenting.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor.js 🤩🧦🤨 example</title>
+  <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+  <link href="assets/demo.css" rel="stylesheet">
+  <script src="assets/json-preview.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+  <div class="ce-example">
+    <div class="ce-example__header">
+      <a class="ce-example__header-logo" href="https://codex.so/editor">Editor.js 🤩🧦🤨</a>
+
+      <div class="ce-example__header-menu">
+        <a href="https://github.com/editor-js" target="_blank">Plugins</a>
+        <a href="https://editorjs.io/usage" target="_blank">Usage</a>
+        <a href="https://editorjs.io/configuration" target="_blank">Configuration</a>
+        <a href="https://editorjs.io/creating-a-block-tool" target="_blank">API</a>
+      </div>
+    </div>
+    <div class="ce-example__content _ce-example__content--small">
+      <div id="editorjs"></div>
+      <div id="hint" style="text-align: center;">
+        No submodules found. Run <code class="inline-code">yarn pull_tools</code>
+      </div>
+      <div class="ce-example__button" id="saveButton">
+        editor.save()
+      </div>
+    </div>
+    <div class="ce-example__output">
+      <pre class="ce-example__output-content" id="output"></pre>
+
+      <div class="ce-example__output-footer">
+        <a href="https://codex.so" style="font-weight: bold;">Made by CodeX</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Tools -->
+  <!--
+   You can upload Tools to your project's directory and use as in example below.
+
+   Also you can load each Tool from CDN or use NPM/Yarn packages.
+
+   Read more in Tool's README file. For example:
+   https://github.com/editor-js/header#installation
+   -->
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.20.1/dist/editor.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+
+  <!-- Initialization -->
+  <script>
+    const saveButton = document.getElementById('saveButton');
+    var editor = new EditorJS({
+      holder: 'editorjs',
+      tools: {
+        header:Header
+      },
+      onReady: function(){
+        saveButton.click();
+      },
+      onChange: function() {
+        console.log('something changed');
+      },
+    });
+    saveButton.addEventListener('click', function () {
+      editor.save().then((savedData) => {
+        cPreview.show(savedData, document.getElementById("output"));
+      });
+    });
+  </script>
+</body>
+</html>

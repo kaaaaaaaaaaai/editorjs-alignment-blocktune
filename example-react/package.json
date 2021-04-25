@@ -1,0 +1,30 @@
+{
+  "name": "example-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development --watch",
+    "pull_tools": "git submodule update --init --recursive"
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@editorjs/editorjs": "^2.20.2",
+    "@editorjs/header": "^2.6.1",
+    "@editorjs/paragraph": "^2.8.0",
+    "@editorjs/quote": "^2.4.0",
+    "add": "^2.0.6",
+    "babel-loader": "^8.2.2",
+    "editorjs-header-with-anchor": "^2.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-editor-js": "^1.9.0",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2",
+    "yarn": "^1.22.10"
+  }
+}
