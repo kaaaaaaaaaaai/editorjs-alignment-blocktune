@@ -96,6 +96,7 @@ class AlignmentBlockTune {
             const button = document.createElement('button');
             button.classList.add(this.api.styles.settingsButton);
             button.innerHTML = align.icon;
+            button.type = 'button';
 
             button.classList.toggle(this.api.styles.settingsButtonActive, align.name === this.data.alignment);
             wrapper.appendChild(button);
