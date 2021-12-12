@@ -53,7 +53,7 @@ tool:{
       tunes: ['anyTuneName'],
     },
     anyTuneName: {
-      class:AlignmentBlockTune,
+      class:AlignmentTuneTool,
       config:{
         default: "right",
         blocks: {
