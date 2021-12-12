@@ -1,4 +1,4 @@
-![](https://badgen.net/badge/Editor.js/v2.20/blue)
+![](https://badgen.net/badge/Editor.js/v2.22.3/blue)
 
 # Text Alignment tune tool for Editor.js
 You can add text alignment to any block.
@@ -8,7 +8,7 @@ You can add text alignment to any block.
 If you can help, please push the Star button :)
 
 ### required
-- editor.js v2.20
+- editor.js v2.22.3 ↑
 
 ## Installation
 
