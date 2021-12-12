@@ -36,7 +36,7 @@ class AlignmentBlockTune {
      * @param settings tuneに設定項目
      * @param block tuneに設定されてるblock
      */
-    constructor({ api, data, settings, block}) {
+    constructor({ api, data, config, block}) {
         this.api = api;
         this.block = block;
         /**
@@ -48,7 +48,7 @@ class AlignmentBlockTune {
             }
           },
          */
-        this.settings = settings;
+        this.settings = config;
         this.data = data || { alignment: this.getAlignment() }
         this.alignmentSettings = [
             {
