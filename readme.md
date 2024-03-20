@@ -23,7 +23,7 @@ npm i --save editorjs-text-alignment-blocktune
 Include module at your application
 
 ```javascript
-const AlignmentTuneTool = require('editorjs-text-alignment-blocktune');
+const AlignmentBlockTune = require('editorjs-text-alignment-blocktune');
 ```
 
 ### Download to your project's source dir
@@ -37,8 +37,9 @@ const AlignmentTuneTool = require('editorjs-text-alignment-blocktune');
 
 ## usage
 and look [editor.js document](https://editorjs.io/configuration#block-tunes-connection)
-```
-tool:{
+
+```javascript
+tool: {
     list: {
       class: List,
       inlineToolbar: true,
@@ -53,7 +54,7 @@ tool:{
       tunes: ['anyTuneName'],
     },
     anyTuneName: {
-      class:AlignmentTuneTool,
+      class: AlignmentBlockTune,
       config:{
         default: "right",
         blocks: {
